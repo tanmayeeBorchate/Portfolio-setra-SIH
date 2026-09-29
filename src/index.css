@@ -1,0 +1,1624 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #f8f9fa;
+  --color-accent: #C84B31;
+  --color-text-main: #111827;
+  --color-text-muted: #6B7280;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-primary);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Smooth dark mode global adjustments */
+html.dark body {
+  background-color: #0a0d14;
+  color: #f3f4f6;
+}
+
+/* Auto-adapt specific background colors in dark mode */
+html.dark .bg-\[\#f8f9fa\] {
+  background-color: #0a0d14 !important;
+}
+
+html.dark .bg-white {
+  background-color: #111827 !important;
+}
+
+html.dark .bg-white\/60,
+html.dark .bg-white\/70,
+html.dark .bg-white\/80,
+html.dark .bg-white\/90,
+html.dark .bg-white\/40 {
+  background-color: rgba(21, 29, 42, 0.85) !important;
+}
+
+html.dark .bg-gray-50 {
+  background-color: #161f30 !important;
+}
+
+html.dark .bg-gray-100 {
+  background-color: #1f293d !important;
+}
+
+html.dark .bg-gray-200 {
+  background-color: #334155 !important;
+}
+
+html.dark .bg-\[\#FDFBF7\] {
+  background-color: #0b1118 !important;
+}
+
+html.dark .bg-\[\#e8e4d9\] {
+  background-color: #0d1522 !important;
+}
+
+/* Dark mode borders */
+html.dark .border-gray-100 {
+  border-color: #1e293b !important;
+}
+
+html.dark .border-gray-200 {
+  border-color: #1f293d !important;
+}
+
+html.dark .border-gray-300 {
+  border-color: #334155 !important;
+}
+
+html.dark .border-gray-400 {
+  border-color: #475569 !important;
+}
+
+/* Dark mode text colors */
+html.dark .text-gray-900,
+html.dark .text-\[\#0F2926\] {
+  color: #f9fafb !important;
+}
+
+html.dark .text-gray-800 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .text-gray-700 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-gray-600 {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-gray-500 {
+  color: #64748b !important;
+}
+
+html.dark .text-gray-400 {
+  color: #94a3b8 !important;
+}
+
+/* Dark mode buttons */
+html.dark .bg-\[\#111827\] {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html.dark .bg-\[\#111827\]:hover {
+  background-color: #e2e8f0 !important;
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* =========================================================
+   SETRA VISUAL SYSTEM — FOUNDATION v1
+   Blue + green gradient language for the SIH portfolio.
+   ========================================================= */
+:root {
+  --setra-blue-950: #06263d;
+  --setra-blue-800: #075985;
+  --setra-blue-600: #0284c7;
+  --setra-cyan: #06b6d4;
+  --setra-green-600: #16a34a;
+  --setra-green-500: #22c55e;
+  --setra-green-400: #4ade80;
+  --setra-surface: #f5fbfa;
+  --setra-ink: #09263a;
+  --setra-muted: #527080;
+  --setra-border: rgba(8, 104, 126, 0.14);
+  --setra-gradient: linear-gradient(135deg, #075985 0%, #0284c7 38%, #06b6d4 63%, #16a34a 100%);
+  --setra-gradient-soft: linear-gradient(135deg, rgba(2,132,199,.13), rgba(34,197,94,.12));
+  --setra-gradient-deep: linear-gradient(135deg, #06263d 0%, #075985 42%, #087f5b 100%);
+}
+
+/* Keep anchored sections clear of the fixed navigation bar. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+@media (max-width: 767px) {
+  html { scroll-padding-top: 72px; }
+  section[id] { scroll-margin-top: 72px; }
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(6,182,212,.08), transparent 28%),
+    radial-gradient(circle at 92% 8%, rgba(34,197,94,.08), transparent 28%),
+    var(--setra-surface);
+  color: var(--setra-ink);
+}
+
+/* Reusable Setra gradient accents */
+.setra-gradient-text {
+  background: var(--setra-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.setra-gradient-bg { background: var(--setra-gradient) !important; }
+.setra-gradient-deep { background: var(--setra-gradient-deep) !important; }
+.setra-soft-bg { background: var(--setra-gradient-soft) !important; }
+
+/* Give the inherited SIH template a consistent blue/green accent language. */
+nav.fixed {
+  background: rgba(247, 252, 252, .88) !important;
+  border-bottom-color: rgba(2, 132, 199, .13) !important;
+}
+
+nav.fixed a.text-2xl,
+nav.fixed a.text-3xl {
+  font-weight: 700 !important;
+  letter-spacing: -.035em !important;
+  background: var(--setra-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+nav.fixed button.bg-\[\#1B4332\] {
+  background: var(--setra-gradient) !important;
+  box-shadow: 0 8px 24px rgba(2,132,199,.18) !important;
+}
+
+nav.fixed button.bg-\[\#1B4332\]:hover {
+  filter: saturate(1.12) brightness(.97);
+}
+
+/* Existing primary green surfaces become Setra gradient surfaces. */
+.bg-\[\#1B4332\] { background: var(--setra-gradient) !important; }
+.hover\:bg-\[\#2D6A4F\]:hover { background: var(--setra-gradient) !important; }
+
+/* Cards: subtle aquatic glass effect without losing readability. */
+.setra-card {
+  background: rgba(255,255,255,.82);
+  border: 1px solid var(--setra-border);
+  box-shadow: 0 18px 60px rgba(5, 73, 91, .08);
+  backdrop-filter: blur(14px);
+}
+
+.setra-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.setra-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(2,132,199,.3), rgba(6,182,212,.14), rgba(34,197,94,.3));
+  filter: blur(22px);
+  opacity: .42;
+}
+
+/* Dark mode foundation */
+html.dark body {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(6,182,212,.12), transparent 28%),
+    radial-gradient(circle at 92% 8%, rgba(34,197,94,.10), transparent 28%),
+    #06131d;
+  color: #e8f6f7;
+}
+
+html.dark nav.fixed {
+  background: rgba(6, 19, 29, .86) !important;
+  border-bottom-color: rgba(34,197,94,.16) !important;
+}
+
+html.dark .setra-card {
+  background: rgba(9, 30, 42, .82);
+  border-color: rgba(94, 234, 212, .12);
+  box-shadow: 0 18px 60px rgba(0,0,0,.22);
+}
+
+/* Selection and focus use the project accent rather than browser blue. */
+::selection { background: rgba(6,182,212,.24); color: inherit; }
+:focus-visible { outline: 2px solid #22c55e; outline-offset: 3px; }
+
+/* Gentle gradient motion for future data/simulation visuals. */
+@keyframes setraGradientFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.setra-animated-gradient {
+  background: linear-gradient(115deg, #075985, #0284c7, #06b6d4, #16a34a, #075985);
+  background-size: 260% 260%;
+  animation: setraGradientFlow 9s ease infinite;
+}
+
+
+/* =========================================================
+   SETRA STEP 1 — CLEAN AQUATIC VISUAL SYSTEM
+   Keep the proven working application intact; this step
+   changes visual language only.
+   ========================================================= */
+
+:root {
+  --setra-surface: #f4fbfc;
+  --setra-ink: #08263a;
+  --setra-muted: #587487;
+  --setra-blue-deep: #063b66;
+  --setra-blue: #0879c9;
+  --setra-cyan: #13b8d1;
+  --setra-teal: #079c86;
+  --setra-green: #31c46b;
+  --setra-gradient: linear-gradient(120deg, #063b66 0%, #0879c9 38%, #13b8d1 65%, #31c46b 100%);
+  --setra-gradient-deep: linear-gradient(135deg, #041e35 0%, #063b66 45%, #087f6d 100%);
+}
+
+/* Remove the inherited beige/cream surfaces without changing layout. */
+[class~="bg-[#FDFBF7]"] {
+  background: linear-gradient(135deg, #f4fbfc 0%, #eef9f8 100%) !important;
+}
+[class~="bg-[#e8e4d9]"] {
+  background: linear-gradient(135deg, #e8f7fa 0%, #e8f8ef 100%) !important;
+}
+
+/* Replace the old neutral hero surface with an aquatic canvas. */
+#hero {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(19,184,209,.13), transparent 27%),
+    radial-gradient(circle at 88% 18%, rgba(49,196,107,.12), transparent 29%),
+    linear-gradient(135deg, #f8fcfd 0%, #eef9fa 52%, #f2fbf6 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  right: -220px;
+  top: -220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(19,184,209,.17), transparent 67%);
+  pointer-events: none;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  left: -250px;
+  bottom: -260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(49,196,107,.12), transparent 68%);
+  pointer-events: none;
+}
+
+/* Make inherited primary actions unmistakably SETRA. */
+#hero a.bg-\[\#1B4332\],
+button.bg-\[\#1B4332\] {
+  background: var(--setra-gradient) !important;
+  border: 0 !important;
+  box-shadow: 0 12px 30px rgba(8,121,201,.20);
+}
+
+#hero a.bg-\[\#1B4332\]:hover,
+button.bg-\[\#1B4332\]:hover {
+  filter: brightness(.96) saturate(1.12);
+  transform: translateY(-1px);
+}
+
+/* Give the existing hero visual a subtle flood-tech treatment. */
+.hero-card-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 6% 3% 3% 8%;
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(8,121,201,.18), rgba(49,196,107,.16));
+  filter: blur(30px);
+  z-index: -1;
+}
+
+.hero-card-wrapper > .relative.bg-white {
+  border-color: rgba(8,121,201,.13) !important;
+  box-shadow: 0 28px 80px rgba(6,59,102,.13) !important;
+}
+
+/* Consistent aquatic section separators and muted surfaces. */
+section {
+  scroll-margin-top: 84px;
+}
+
+html:not(.dark) .bg-gray-50 {
+  background-color: #f3fafb !important;
+}
+
+html:not(.dark) .bg-gray-100 {
+  background-color: #eaf6f7 !important;
+}
+
+/* More distinctive scrollbar. */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#0879c9, #31c46b);
+}
+
+/* =========================================================
+   SETRA STEP 2.1 — HERO CONTRAST FIX
+   The hero uses a dark hydrodynamic canvas so the existing
+   white headline/body copy remains accessible and legible.
+   ========================================================= */
+#hero {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(19,184,209,.22), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(49,196,107,.18), transparent 30%),
+    radial-gradient(circle at 52% 100%, rgba(8,121,201,.16), transparent 34%),
+    linear-gradient(135deg, #041a2a 0%, #062c45 48%, #063d43 100%) !important;
+  color: #f8fafc !important;
+}
+
+#hero .text-slate-300 { color: #cbd5e1 !important; }
+#hero .text-white { color: #f8fafc !important; }
+#hero .text-slate-400 { color: #94a3b8 !important; }
+
+#hero::before {
+  background: radial-gradient(circle, rgba(19,184,209,.18), transparent 68%) !important;
+}
+
+#hero::after {
+  background: radial-gradient(circle, rgba(49,196,107,.14), transparent 68%) !important;
+}
+
+
+/* =========================================================
+   SETRA HERO MOTION — soft, calm hydrodynamic animation
+   ========================================================= */
+.setra-hero-modal {
+  transform: translate3d(0, 0, 0);
+  animation: setraModalFloat 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+.setra-hero-modal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 20%, rgba(165, 243, 252, .055) 48%, transparent 72%);
+  transform: translateX(-110%);
+  animation: setraSoftScan 8s ease-in-out infinite;
+}
+
+.setra-modal-grid {
+  animation: setraGridDrift 14s linear infinite;
+}
+
+.setra-flood-map {
+  transform-origin: 50% 58%;
+  animation: setraMapBreath 6s ease-in-out infinite;
+}
+
+.setra-water-flow {
+  animation: setraWaterPulse 4.5s ease-in-out infinite;
+}
+
+.setra-flow-line {
+  animation: setraFlowDash 5s linear infinite;
+}
+
+.setra-marker-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: setraMarkerPulse 2.8s ease-out infinite;
+}
+
+.setra-metrics > div {
+  animation: setraMetricRise .7s ease-out both;
+}
+
+.setra-metrics > div:nth-child(2) { animation-delay: .12s; }
+.setra-metrics > div:nth-child(3) { animation-delay: .24s; }
+
+@keyframes setraModalFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(.15deg); }
+}
+
+@keyframes setraSoftScan {
+  0%, 48% { transform: translateX(-110%); opacity: 0; }
+  55% { opacity: 1; }
+  78%, 100% { transform: translateX(110%); opacity: 0; }
+}
+
+@keyframes setraGridDrift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(32px, 32px, 0); }
+}
+
+@keyframes setraMapBreath {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.012); }
+}
+
+@keyframes setraWaterPulse {
+  0%, 100% { opacity: .78; }
+  50% { opacity: 1; }
+}
+
+@keyframes setraFlowDash {
+  to { stroke-dashoffset: -76; }
+}
+
+@keyframes setraMarkerPulse {
+  0%, 100% { opacity: .85; }
+  50% { opacity: 1; transform: scale(1.035); }
+}
+
+@keyframes setraMetricRise {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .setra-hero-modal,
+  .setra-hero-modal::after,
+  .setra-modal-grid,
+  .setra-flood-map,
+  .setra-water-flow,
+  .setra-flow-line,
+  .setra-marker-pulse,
+  .setra-metrics > div {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   SETRA SOFT UI PASS — calm, airy, premium appearance
+   ========================================================= */
+:root {
+  --setra-surface: #f7fbfb;
+  --setra-ink: #173746;
+  --setra-muted: #6c8490;
+  --setra-soft-blue: #eaf7fb;
+  --setra-soft-mint: #edf9f4;
+  --setra-soft-line: rgba(35, 112, 128, .10);
+  --setra-soft-shadow: 0 16px 50px rgba(33, 91, 105, .08);
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(116, 211, 225, .10), transparent 30%),
+    radial-gradient(circle at 88% 8%, rgba(126, 214, 170, .09), transparent 30%),
+    #f7fbfb;
+  color: var(--setra-ink);
+}
+
+/* Softer global surfaces inherited from the original SIH template. */
+html:not(.dark) .bg-white { background-color: rgba(255,255,255,.88) !important; }
+html:not(.dark) .bg-gray-50 { background-color: #f6fbfb !important; }
+html:not(.dark) .bg-gray-100 { background-color: #eff8f8 !important; }
+html:not(.dark) .bg-gray-200 { background-color: #e6f1f2 !important; }
+html:not(.dark) .border-gray-100 { border-color: rgba(47, 112, 126, .08) !important; }
+html:not(.dark) .border-gray-200 { border-color: rgba(47, 112, 126, .11) !important; }
+html:not(.dark) .border-gray-300 { border-color: rgba(47, 112, 126, .15) !important; }
+
+/* Softer navbar: translucent rather than stark white. */
+nav.fixed {
+  background: rgba(250, 253, 253, .82) !important;
+  border-bottom-color: rgba(47, 112, 126, .08) !important;
+  box-shadow: 0 6px 24px rgba(33, 91, 105, .035);
+  backdrop-filter: blur(16px);
+}
+
+/* Calm hero: retain contrast, reduce saturation and harsh glow. */
+#hero {
+  background:
+    radial-gradient(circle at 7% 18%, rgba(91, 192, 207, .16), transparent 29%),
+    radial-gradient(circle at 90% 12%, rgba(111, 199, 161, .13), transparent 30%),
+    radial-gradient(circle at 52% 100%, rgba(70, 151, 190, .11), transparent 35%),
+    linear-gradient(135deg, #102f3d 0%, #173f4c 50%, #174a47 100%) !important;
+}
+
+#hero .bg-cyan-300\/10 { background-color: rgba(123, 211, 221, .08) !important; }
+#hero .border-cyan-300\/20 { border-color: rgba(153, 224, 230, .20) !important; }
+#hero .text-cyan-100 { color: #cceff1 !important; }
+#hero .text-slate-300 { color: #c9d9de !important; }
+#hero .text-slate-400 { color: #a8bec6 !important; }
+
+/* Softer CTA gradient. */
+#hero a.bg-\[\#1B4332\],
+button.bg-\[\#1B4332\] {
+  background: linear-gradient(135deg, #2486a7, #27b29b) !important;
+  box-shadow: 0 10px 26px rgba(39, 142, 156, .18) !important;
+}
+
+/* Hero modal: less contrast, more glass and depth. */
+.setra-hero-modal {
+  background: linear-gradient(145deg, rgba(39, 67, 78, .96), rgba(33, 76, 77, .94)) !important;
+  border-color: rgba(184, 231, 229, .12) !important;
+  box-shadow: 0 26px 70px rgba(5, 35, 45, .20) !important;
+}
+
+.hero-card-wrapper::before {
+  background: linear-gradient(135deg, rgba(94, 196, 210, .12), rgba(111, 199, 161, .10)) !important;
+  filter: blur(34px);
+  opacity: .65;
+}
+
+/* Tone down the decorative animation so it feels refined rather than neon. */
+.setra-hero-modal::after {
+  background: linear-gradient(115deg, transparent 20%, rgba(210, 245, 244, .035) 48%, transparent 72%);
+}
+
+.setra-water-flow { opacity: .88; }
+.setra-flood-map { opacity: .94; }
+.setra-marker-pulse { opacity: .86; }
+
+/* Softer cards throughout the rest of the portfolio. */
+.setra-card,
+.rounded-2xl.border,
+.rounded-3xl.border {
+  box-shadow: var(--setra-soft-shadow);
+  border-color: var(--setra-soft-line) !important;
+}
+
+/* Gentle section rhythm. */
+section:not(#hero) {
+  border-color: rgba(47, 112, 126, .06);
+}
+
+/* Soften large decorative gradients inherited by sections. */
+html:not(.dark) .bg-emerald-50 { background-color: #f0faf6 !important; }
+html:not(.dark) .bg-cyan-50 { background-color: #effafd !important; }
+html:not(.dark) .bg-blue-50 { background-color: #f0f8fc !important; }
+
+/* Softer dark mode, too. */
+html.dark body {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(73, 171, 184, .08), transparent 30%),
+    radial-gradient(circle at 90% 8%, rgba(89, 177, 139, .07), transparent 30%),
+    #0d1d25;
+}
+
+html.dark nav.fixed {
+  background: rgba(13, 29, 37, .84) !important;
+  border-bottom-color: rgba(153, 224, 230, .08) !important;
+}
+
+html.dark .setra-card {
+  background: rgba(19, 45, 54, .78);
+  border-color: rgba(153, 224, 230, .09) !important;
+  box-shadow: 0 18px 50px rgba(0,0,0,.16);
+}
+
+/* =========================================================
+   SETRA STEP 2.2 — NEUTRAL PAGE / COLOURED MODAL ONLY
+   Keep the wider portfolio calm and neutral. The hydrodynamic
+   blue/green treatment is intentionally reserved for the hero
+   simulation modal on the right.
+   ========================================================= */
+:root {
+  --setra-surface: #ffffff;
+  --setra-ink: #17212b;
+  --setra-muted: #667481;
+}
+
+html:not(.dark) body {
+  background: #ffffff !important;
+  color: #17212b;
+}
+
+html:not(.dark) nav.fixed {
+  background: rgba(255,255,255,.94) !important;
+  border-bottom-color: #e9eef1 !important;
+  box-shadow: 0 5px 22px rgba(15, 23, 42, .045) !important;
+}
+
+html:not(.dark) nav.fixed a.text-2xl,
+html:not(.dark) nav.fixed a.text-3xl {
+  background: none !important;
+  color: #1d2935 !important;
+}
+
+/* Neutralise the page canvas; colour is reserved for the right modal. */
+#hero {
+  background: #ffffff !important;
+  color: #17212b !important;
+}
+
+#hero::before,
+#hero::after {
+  display: none !important;
+}
+
+#hero > .absolute.inset-0 > div {
+  opacity: 0 !important;
+}
+
+#hero .text-slate-300,
+#hero .text-slate-400 {
+  color: #657481 !important;
+}
+
+#hero .text-white {
+  color: #17212b !important;
+}
+
+#hero .text-cyan-100 {
+  color: #53646f !important;
+}
+
+#hero h1 span {
+  background: none !important;
+  color: #2f414d !important;
+}
+
+#hero .inline-flex.rounded-full {
+  background: #f4f7f8 !important;
+  border-color: #e1e8eb !important;
+  color: #596a75 !important;
+}
+
+#hero .inline-flex.rounded-full .bg-emerald-300 {
+  background: #71818a !important;
+  box-shadow: none !important;
+}
+
+/* Keep the primary CTA restrained on the neutral page. */
+#hero a.bg-gradient-to-r {
+  background: #1f2d36 !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, .10) !important;
+}
+
+#hero a.border-white\/15 {
+  border-color: #dbe3e7 !important;
+  background: #ffffff !important;
+  color: #394a55 !important;
+}
+
+#hero a.border-white\/15:hover {
+  background: #f7f9fa !important;
+}
+
+#hero .grid.grid-cols-3 > div {
+  background: #fafcfc !important;
+  border-color: #e6edef !important;
+}
+
+#hero .grid.grid-cols-3 .text-cyan-200 {
+  color: #48636f !important;
+}
+
+#hero .grid.grid-cols-3 .text-slate-400 {
+  color: #89959c !important;
+}
+
+/* The right-side simulation modal remains the visual colour anchor. */
+.setra-hero-modal {
+  background: rgba(18, 43, 56, .88) !important;
+  border-color: rgba(207, 250, 254, .10) !important;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, .32) !important;
+}
+
+.hero-card-wrapper::before {
+  display: none !important;
+}
+
+/* Neutralise broad inherited coloured section surfaces. */
+html:not(.dark) section:not(#hero):not(#final-cta),
+html:not(.dark) .bg-\[\#f8f9fa\],
+html:not(.dark) .bg-\[\#e8e4d9\],
+html:not(.dark) .bg-gray-50,
+html:not(.dark) .bg-gray-100,
+html:not(.dark) .bg-emerald-50,
+html:not(.dark) .bg-cyan-50,
+html:not(.dark) .bg-blue-50 {
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+html:not(.dark) .setra-card,
+html:not(.dark) .rounded-2xl.border,
+html:not(.dark) .rounded-3xl.border {
+  background: #ffffff !important;
+  border-color: #e7ecef !important;
+  box-shadow: 0 10px 32px rgba(15, 23, 42, .045) !important;
+}
+
+/* Keep section text neutral. */
+html:not(.dark) section h1,
+html:not(.dark) section h2,
+html:not(.dark) section h3,
+html:not(.dark) section p {
+  --tw-text-opacity: 1;
+}
+
+
+/* Final SIH CTA: keep this section intentionally high-contrast.
+   The global light-surface rules above must not wash it out. */
+html:not(.dark) #final-cta {
+  background: #071c2b !important;
+  background-image: radial-gradient(circle at 85% 15%, rgba(45, 212, 191, .12), transparent 34%),
+                    radial-gradient(circle at 10% 90%, rgba(34, 211, 238, .10), transparent 32%) !important;
+  border-top-color: rgba(15, 23, 42, .12) !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) #final-cta h2 { color: #ffffff !important; }
+html:not(.dark) #final-cta p { color: #cbd5e1 !important; }
+html:not(.dark) #final-cta .text-white { color: #ffffff !important; }
+html:not(.dark) #final-cta .text-slate-300 { color: #cbd5e1 !important; }
+html:not(.dark) #final-cta .text-slate-400 { color: #94a3b8 !important; }
+
+/* Keep the modal's animation and internal colour untouched. */
+.setra-hero-modal .setra-modal-grid,
+.setra-hero-modal .setra-flood-map,
+.setra-hero-modal .setra-water-flow,
+.setra-hero-modal .setra-flow-line,
+.setra-hero-modal .setra-marker-pulse,
+.setra-hero-modal .setra-metrics {
+  opacity: initial;
+}
+
+@media (max-width: 1024px) {
+  #hero {
+    background: #ffffff !important;
+  }
+}
+
+/* SETRA MODAL COLOR RESTORE — match the original dark hydrodynamic panel */
+.setra-hero-modal {
+  background: rgba(18, 43, 56, 0.94) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.40) !important;
+}
+
+.setra-hero-modal::after {
+  background: linear-gradient(115deg, transparent 20%, rgba(165, 243, 252, 0.045) 48%, transparent 72%) !important;
+}
+
+.setra-flood-map { opacity: 1 !important; }
+.setra-water-flow { opacity: 1 !important; }
+
+
+/* ===== SETRA STEP 6 · SCENARIO LAB ===== */
+.setra-scenario-section { background:#f7fafb !important; }
+.setra-scenario-shell { background:#071c2b !important; border-color:rgba(15,23,42,.10) !important; box-shadow:0 28px 80px rgba(15,23,42,.10); }
+.setra-scenario-controls { background:linear-gradient(180deg,#0a2535 0%,#071c2b 100%) !important; }
+.setra-scenario-map { background:linear-gradient(135deg,#092333 0%,#0a1d2a 52%,#0c3a40 100%) !important; }
+.setra-range { accent-color:#2dd4bf; height:4px; }
+.setra-scenario-flow { stroke-dasharray:18 14; animation:setraFlow 5s linear infinite; }
+.setra-scenario-flow.running { animation-duration:1.25s; }
+.setra-breach-pulse { transform-origin:185px 190px; animation:setraPulse 2s ease-out infinite; }
+@keyframes setraFlow { to { stroke-dashoffset:-160px; } }
+@keyframes setraPulse { 0%,100% { transform:scale(.9); opacity:.25; } 50% { transform:scale(1.25); opacity:.8; } }
+@media (prefers-reduced-motion:reduce) { .setra-scenario-flow,.setra-breach-pulse { animation:none; } }
+
+
+/* ===== STEP 12/13 CONSISTENCY FIXES ===== */
+.setra-comparison-head, .setra-comparison-body { color:#0f172a !important; }
+.setra-comparison-body { background:#ffffff !important; }
+.setra-comparison-body .text-white { color:#0f172a !important; }
+.setra-comparison-body .text-slate-300 { color:#475569 !important; }
+.setra-comparison-body .text-slate-400 { color:#64748b !important; }
+.setra-comparison-body .border-white\/10 { border-color:#e2e8f0 !important; }
+.setra-comparison-body .bg-white\/[0.05] { background:#f8fafc !important; }
+.setra-comparison-body .bg-white\/[0.045] { background:#f8fafc !important; }
+@media (max-width: 900px) {
+  nav a, nav button { white-space: normal; }
+}
+
+
+/* STEP 16 — final visual hardening */
+html:not(.dark) #final-cta,
+html:not(.dark) section#final-cta {
+  background-color: #071c2b !important;
+  background-image:
+    radial-gradient(circle at 84% 16%, rgba(45,212,191,.13), transparent 34%),
+    radial-gradient(circle at 8% 92%, rgba(34,211,238,.10), transparent 34%) !important;
+  color: #fff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+html:not(.dark) #final-cta h2,
+html:not(.dark) #final-cta p,
+html:not(.dark) #final-cta .text-white {
+  opacity: 1 !important;
+}
+
+html:not(.dark) #final-cta h2 { color: #fff !important; }
+html:not(.dark) #final-cta p { color: #cbd5e1 !important; }
+html:not(.dark) #final-cta .text-slate-300 { color: #cbd5e1 !important; }
+html:not(.dark) #final-cta .text-slate-400 { color: #94a3b8 !important; }
+
+/* Team portraits: keep the presentation crop consistent without stretching faces. */
+.team-member-photo {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+.team-member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}
+
+/* STEP 17 — tighter section rhythm: avoid large blank bands between adjacent portfolio sections */
+.setra-scenario-section,
+.setra-gis-section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+
+
+/* STEP 19 — keep the Outputs handoff panel dark and its supporting text readable in light mode. */
+.setra-output-handoff {
+  background: #071c2b !important;
+  color: #ffffff !important;
+  border-color: rgba(15, 23, 42, .10) !important;
+}
+.setra-output-handoff h3 { color: #ffffff !important; }
+.setra-output-handoff p { color: #cbd5e1 !important; }
+.setra-output-handoff .text-slate-500 { color: #cbd5e1 !important; }
+.setra-output-handoff .text-slate-400 { color: #cbd5e1 !important; }
+.setra-output-handoff .bg-white\/\[0\.045\] { background: rgba(255,255,255,.045) !important; }
+.setra-output-handoff .bg-white\/\[0\.04\] { background: rgba(255,255,255,.04) !important; }
+
+/* STEP 18 — TEAM SECTION: remove artificial viewport-height whitespace */
+#team {
+  min-height: auto !important;
+  height: auto !important;
+}
+
+.team-page,
+section[data-section="team"] {
+  min-height: auto !important;
+}
+
+/* Team grid should end naturally after the member cards. */
+#team .max-w-7xl {
+  padding-bottom: 1rem !important;
+}
+
+/* Keep the footer close to the final content instead of leaving a large visual gap. */
+main + footer {
+  margin-top: 0 !important;
+}
+main {
+  margin-bottom: 0 !important;
+}
+
+
+/* STEP 20 — remove page-level flex stretching that creates large blank bands before the footer. */
+main {
+  flex: 0 0 auto !important;
+  min-height: 0 !important;
+}
+
+/* STEP 20 — force the Outputs handoff card to remain dark in light mode and keep all copy readable. */
+html:not(.dark) #outputs .setra-output-handoff {
+  background-color: #071c2b !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+html:not(.dark) #outputs .setra-output-handoff h3,
+html:not(.dark) #outputs .setra-output-handoff .text-white {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+html:not(.dark) #outputs .setra-output-handoff p,
+html:not(.dark) #outputs .setra-output-handoff .text-slate-300,
+html:not(.dark) #outputs .setra-output-handoff .text-slate-400 {
+  color: #cbd5e1 !important;
+  opacity: 1 !important;
+}
+html:not(.dark) #outputs .setra-output-handoff .text-cyan-300 {
+  color: #67e8f9 !important;
+  opacity: 1 !important;
+}
+html:not(.dark) #outputs .setra-output-handoff [class*="bg-white"] {
+  background-color: rgba(255,255,255,.045) !important;
+}
+/* Focused motion for the analytical visuals — not team portraits */
+.setra-gis-map,
+.setra-gee-map,
+.setra-hadr-map {
+  transform-origin: center center;
+  will-change: transform;
+  animation: setraAnalysisVisualFloat 6.5s ease-in-out infinite;
+  transition: transform .45s cubic-bezier(.2,.75,.25,1), box-shadow .45s ease;
+}
+
+.setra-gis-map:hover,
+.setra-gee-map:hover,
+.setra-hadr-map:hover {
+  transform: translateY(-3px) scale(1.012);
+  box-shadow: 0 18px 45px rgba(34, 211, 238, .12);
+}
+
+@keyframes setraAnalysisVisualFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-3px) scale(1.006); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .setra-gis-map,
+  .setra-gee-map,
+  .setra-hadr-map {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* =========================================================
+   FINAL DARK-THEME READABILITY FIX
+   Keep all copy on dark surfaces bright enough to read.
+   ========================================================= */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Common Tailwind slate text classes used by the portfolio. */
+html.dark .text-slate-950,
+html.dark .text-slate-900,
+html.dark .text-slate-800,
+html.dark .text-slate-700 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-600,
+html.dark .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-400 {
+  color: #e2e8f0 !important;
+}
+
+/* Hydrodynamic Core — dark cards need light internal copy. */
+html.dark #hydrodynamic-core {
+  color: #f8fafc !important;
+}
+
+html.dark #hydrodynamic-core h2,
+html.dark #hydrodynamic-core h3,
+html.dark #hydrodynamic-core .text-slate-950,
+html.dark #hydrodynamic-core .text-slate-900,
+html.dark #hydrodynamic-core .text-slate-800,
+html.dark #hydrodynamic-core .text-slate-700 {
+  color: #f8fafc !important;
+}
+
+html.dark #hydrodynamic-core p,
+html.dark #hydrodynamic-core .text-slate-600,
+html.dark #hydrodynamic-core .text-slate-500,
+html.dark #hydrodynamic-core .text-slate-400 {
+  color: #dbe5ef !important;
+}
+
+html.dark #hydrodynamic-core article {
+  border-color: rgba(148, 163, 184, .30) !important;
+  background: linear-gradient(135deg, #101c2b 0%, #0c1724 100%) !important;
+}
+
+html.dark #hydrodynamic-core article .bg-white\/75,
+html.dark #hydrodynamic-core article .bg-white\/80 {
+  background: rgba(255,255,255,.055) !important;
+  border-color: rgba(148,163,184,.22) !important;
+}
+
+html.dark #hydrodynamic-core article .text-cyan-700,
+html.dark #hydrodynamic-core article .text-emerald-700 {
+  color: #67e8f9 !important;
+}
+
+html.dark #hydrodynamic-core article:nth-of-type(2) .text-emerald-700 {
+  color: #6ee7b7 !important;
+}
+
+html.dark #hydrodynamic-core > div > div:first-child .text-slate-500 {
+  color: #e2e8f0 !important;
+}
+
+/* Comparison/workflow cards shown on the dark section. */
+html.dark #hydrodynamic-core .setra-comparison-head h3,
+html.dark #hydrodynamic-core .setra-comparison-head .text-slate-900,
+html.dark #hydrodynamic-core .setra-comparison-head .text-slate-700,
+html.dark #hydrodynamic-core .setra-comparison-head .text-slate-500,
+html.dark #hydrodynamic-core .setra-comparison-body .text-slate-900,
+html.dark #hydrodynamic-core .setra-comparison-body .text-slate-800,
+html.dark #hydrodynamic-core .setra-comparison-body .text-slate-700,
+html.dark #hydrodynamic-core .setra-comparison-body .text-slate-600,
+html.dark #hydrodynamic-core .setra-comparison-body .text-slate-500,
+html.dark #hydrodynamic-core .setra-comparison-body .text-slate-400 {
+  color: #f8fafc !important;
+}
+
+/* WorkflowDiagram inactive cards and labels. */
+html.dark .setra-workflow,
+html.dark [class*="workflow"] {
+  color: #f8fafc;
+}
+
+html.dark .setra-workflow .text-slate-900,
+html.dark .setra-workflow .text-slate-800,
+html.dark .setra-workflow .text-slate-700,
+html.dark .setra-workflow .text-slate-600,
+html.dark .setra-workflow .text-slate-500,
+html.dark .setra-workflow .text-slate-400 {
+  color: #f8fafc !important;
+}
+
+/* Dark-mode labels inside white-looking workflow cards. */
+html.dark .border-slate-200.bg-white .text-slate-900,
+html.dark .border-slate-200.bg-white .text-slate-800,
+html.dark .border-slate-200.bg-white .text-slate-700,
+html.dark .border-slate-200.bg-white .text-slate-600,
+html.dark .border-slate-200.bg-white .text-slate-500,
+html.dark .border-slate-200.bg-white .text-slate-400 {
+  color: #f8fafc !important;
+}
+
+/* =========================================================
+   FINAL DARK MODE CONTRAST FIX — comparison + HADR sections
+   ========================================================= */
+html.dark #hydrodynamic-core .setra-comparison-head {
+  background: #071c2b !important;
+  border-color: rgba(148, 163, 184, .18) !important;
+  color: #f8fafc !important;
+}
+
+html.dark #hydrodynamic-core .setra-comparison-head h3 {
+  color: #f8fafc !important;
+}
+
+html.dark #hydrodynamic-core .setra-comparison-head .border-slate-200,
+html.dark #hydrodynamic-core .setra-comparison-head .bg-slate-50 {
+  border-color: rgba(148, 163, 184, .24) !important;
+  background: rgba(255,255,255,.06) !important;
+}
+
+html.dark #hydrodynamic-core .setra-comparison-body {
+  background: #0b1724 !important;
+  color: #f8fafc !important;
+}
+
+html.dark #hydrodynamic-core .setra-comparison-body > div {
+  border-color: rgba(148, 163, 184, .20) !important;
+}
+
+html.dark #hydrodynamic-core .setra-comparison-body .text-slate-500,
+html.dark #hydrodynamic-core .setra-comparison-body .text-slate-600,
+html.dark #hydrodynamic-core .setra-comparison-body .text-slate-700,
+html.dark #hydrodynamic-core .setra-comparison-body .text-slate-800,
+html.dark #hydrodynamic-core .setra-comparison-body .text-slate-900 {
+  color: #f1f5f9 !important;
+}
+
+html.dark #hydrodynamic-core .setra-comparison-body span {
+  color: #dbe5ef !important;
+  border-color: rgba(148,163,184,.24) !important;
+  background: rgba(255,255,255,.055) !important;
+}
+
+html.dark #hydrodynamic-core .setra-comparison-body .bg-slate-50,
+html.dark #hydrodynamic-core .setra-comparison-body .bg-white\/\[0\.05\],
+html.dark #hydrodynamic-core .setra-comparison-body .bg-white\/\[0\.045\] {
+  background: rgba(255,255,255,.055) !important;
+}
+
+html.dark #hydrodynamic-core > div > div > .border-t.bg-slate-50\/80 {
+  background: #071c2b !important;
+  border-color: rgba(148,163,184,.18) !important;
+}
+
+html.dark #hydrodynamic-core > div > div > .border-t.bg-slate-50\/80 p {
+  color: #cbd5e1 !important;
+}
+
+/* HADR: keep the entire section dark in dark mode so white/light copy
+   never sits on a white canvas. */
+html.dark #hadr {
+  background: #0b1724 !important;
+  border-color: rgba(148,163,184,.16) !important;
+  color: #f8fafc !important;
+}
+
+html.dark #hadr h2,
+html.dark #hadr h3 {
+  color: #f8fafc !important;
+}
+
+html.dark #hadr > div > div:first-child > p {
+  color: #cbd5e1 !important;
+}
+
+html.dark #hadr .border-slate-200.bg-white {
+  background: #10202d !important;
+  border-color: rgba(148,163,184,.22) !important;
+}
+
+html.dark #hadr .border-slate-200.bg-white .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+html.dark #hadr .border-slate-200.bg-white .text-slate-800 {
+  color: #f1f5f9 !important;
+}
+
+html.dark #hadr > div > p:last-child {
+  color: #cbd5e1 !important;
+}
+
+/* Improve muted labels inside the dark HADR workspace. */
+html.dark #hadr .text-slate-500 {
+  color: #b7c6d3 !important;
+}
+
+html.dark #hadr .text-slate-400 {
+  color: #cbd5e1 !important;
+}
+
+/* =========================================================
+   SETRA — COMPLETE DARK THEME PASS
+   In dark mode every page/section uses the same deep navy
+   canvas. Light/white template surfaces are converted to
+   dark surfaces and all primary copy is made readable.
+   ========================================================= */
+html.dark body {
+  background: #0b1724 !important;
+  color: #f8fafc !important;
+}
+
+/* Every major page section shares the dark canvas. */
+html.dark section {
+  background-color: #0b1724 !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .16) !important;
+}
+
+/* Preserve the intentional dark hero/final CTA character. */
+html.dark #hero,
+html.dark #final-cta {
+  background-color: #071522 !important;
+}
+
+/* Remove light section gradients/surfaces in dark mode. */
+html.dark section[class*="bg-[#f7fafb]"],
+html.dark section[class*="bg-[#f8f9fa]"],
+html.dark section[class*="bg-white"],
+html.dark section[class*="bg-gray-50"],
+html.dark section[class*="bg-gray-100"] {
+  background: #0b1724 !important;
+  background-image: none !important;
+}
+
+/* Common light cards/surfaces. */
+html.dark .bg-white,
+html.dark .bg-gray-50,
+html.dark .bg-gray-100,
+html.dark .bg-gray-200,
+html.dark .bg-slate-50,
+html.dark .bg-slate-100,
+html.dark .bg-cyan-50,
+html.dark .bg-cyan-100,
+html.dark .bg-emerald-50,
+html.dark .bg-emerald-100,
+html.dark .bg-blue-50,
+html.dark .bg-\[\#f7fafb\],
+html.dark .bg-\[\#f8f9fa\],
+html.dark .bg-\[\#f8fafb\],
+html.dark .bg-\[\#FDFBF7\],
+html.dark .bg-\[\#e8e4d9\] {
+  background-color: #10202d !important;
+  color: #f8fafc !important;
+}
+
+/* Light gradient cards become dark glass surfaces. */
+html.dark [class*="from-white"][class*="to-cyan-50"],
+html.dark [class*="from-cyan-50"][class*="to-emerald-50"],
+html.dark [class*="from-cyan-50"][class*="to-emerald-50/"],
+html.dark [class*="from-white"][class*="to-emerald-50"] {
+  background-image: linear-gradient(135deg, #10202d 0%, #0d1c29 100%) !important;
+  background-color: #10202d !important;
+}
+
+/* White translucent chips/panels should never create a white patch. */
+html.dark .bg-white\/40,
+html.dark .bg-white\/60,
+html.dark .bg-white\/70,
+html.dark .bg-white\/75,
+html.dark .bg-white\/80,
+html.dark .bg-white\/90,
+html.dark .bg-white\/\[0\.04\],
+html.dark .bg-white\/\[0\.045\],
+html.dark .bg-white\/\[0\.05\],
+html.dark .bg-white\/\[0\.06\] {
+  background-color: rgba(255,255,255,.055) !important;
+}
+
+/* Light text utility classes -> readable dark-theme equivalents. */
+html.dark .text-slate-950,
+html.dark .text-slate-900,
+html.dark .text-slate-800,
+html.dark .text-slate-700,
+html.dark .text-gray-900,
+html.dark .text-gray-800 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-600,
+html.dark .text-gray-700,
+html.dark .text-gray-600 {
+  color: #dbe5ef !important;
+}
+
+html.dark .text-slate-500,
+html.dark .text-gray-500,
+html.dark .text-gray-400 {
+  color: #b7c6d3 !important;
+}
+
+html.dark .text-slate-400 {
+  color: #cbd5e1 !important;
+}
+
+/* Keep dark-theme white text genuinely white. */
+html.dark .text-white {
+  color: #f8fafc !important;
+}
+
+/* Light borders become subtle blue-grey borders. */
+html.dark .border-slate-200,
+html.dark .border-slate-300,
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-gray-300 {
+  border-color: rgba(148,163,184,.20) !important;
+}
+
+/* Cyan/green pastel badges become dark translucent badges. */
+html.dark .border-cyan-100,
+html.dark .border-cyan-200,
+html.dark .border-emerald-100,
+html.dark .border-emerald-200,
+html.dark .border-blue-100 {
+  border-color: rgba(103,232,249,.22) !important;
+}
+
+/* Integration path card visible in the screenshots. */
+html.dark [class*="from-cyan-50"][class*="to-emerald-50"] .bg-white\/80,
+html.dark [class*="from-cyan-50"][class*="to-emerald-50"] .bg-white {
+  background: rgba(255,255,255,.07) !important;
+  color: #f8fafc !important;
+  border-color: rgba(148,163,184,.22) !important;
+}
+
+html.dark [class*="from-cyan-50"][class*="to-emerald-50"] .text-slate-700,
+html.dark [class*="from-cyan-50"][class*="to-emerald-50"] .text-slate-600 {
+  color: #f1f5f9 !important;
+}
+
+/* Problem section contains one intentionally inline white panel. */
+html.dark .setra-objective-panel {
+  background: #10202d !important;
+  color: #f8fafc !important;
+  border-color: rgba(148,163,184,.20) !important;
+}
+html.dark .setra-objective-panel h3 { color: #f8fafc !important; }
+html.dark .setra-objective-panel p { color: #dbe5ef !important; }
+
+/* Comparison layer: no white center panel in dark mode. */
+html.dark .setra-comparison-head {
+  background: #071c2b !important;
+  color: #f8fafc !important;
+  border-color: rgba(148,163,184,.18) !important;
+}
+html.dark .setra-comparison-body {
+  background: #0d1c29 !important;
+  color: #f8fafc !important;
+}
+html.dark .setra-comparison-body > div {
+  border-color: rgba(148,163,184,.18) !important;
+}
+html.dark .setra-comparison-body .bg-slate-50,
+html.dark .setra-comparison-body .bg-white\/\[0\.045\],
+html.dark .setra-comparison-body .bg-white\/\[0\.05\] {
+  background: rgba(255,255,255,.055) !important;
+}
+html.dark .setra-comparison-body .text-slate-900,
+html.dark .setra-comparison-body .text-slate-800,
+html.dark .setra-comparison-body .text-slate-700,
+html.dark .setra-comparison-body .text-slate-600,
+html.dark .setra-comparison-body .text-slate-500,
+html.dark .setra-comparison-body .text-slate-400 {
+  color: #f1f5f9 !important;
+}
+
+/* Innovation / HADR / GIS supporting copy. */
+html.dark #innovation p,
+html.dark #hadr p,
+html.dark #gis-analysis p,
+html.dark #gee-analysis p,
+html.dark #technology p,
+html.dark #outputs p,
+html.dark #how-it-works p,
+html.dark #problem p {
+  color: #dbe5ef !important;
+}
+
+html.dark #innovation h2,
+html.dark #innovation h3,
+html.dark #hadr h2,
+html.dark #hadr h3,
+html.dark #gis-analysis h2,
+html.dark #gis-analysis h3,
+html.dark #gee-analysis h2,
+html.dark #gee-analysis h3,
+html.dark #technology h2,
+html.dark #technology h3,
+html.dark #outputs h2,
+html.dark #outputs h3,
+html.dark #how-it-works h2,
+html.dark #how-it-works h3,
+html.dark #problem h2,
+html.dark #problem h3,
+html.dark #documents h2,
+html.dark #team h2 {
+  color: #f8fafc !important;
+}
+
+/* Cards inside all dark-mode sections. */
+html.dark section article.bg-white,
+html.dark section .rounded-2xl.bg-white,
+html.dark section .rounded-3xl.bg-white,
+html.dark section .border-slate-200.bg-white {
+  background: #10202d !important;
+  border-color: rgba(148,163,184,.20) !important;
+  color: #f8fafc !important;
+}
+
+/* Darken light team/document cards too. */
+html.dark #team .bg-\[\#f8f9fa\],
+html.dark #documents .bg-\[\#f8f9fa\],
+html.dark #documents .bg-white,
+html.dark #team .bg-white {
+  background: #10202d !important;
+  color: #f8fafc !important;
+  border-color: rgba(148,163,184,.20) !important;
+}
+
+/* Any inline white surface in dark mode is converted to the dark card tone. */
+html.dark [style*="background: rgb(255, 255, 255)"] {
+  background: #10202d !important;
+}
+
+/* Dark mode page separators. */
+html.dark hr,
+html.dark section.border-t,
+html.dark section.border-y {
+  border-color: rgba(148,163,184,.16) !important;
+}
+
+/* =========================================================
+   SETRA DARK MODE — FINAL TEXT CONTRAST PASS
+   Gradient headings must remain vivid in dark mode instead
+   of inheriting the light-theme gradient colors.
+   ========================================================= */
+html.dark [class*="from-sky-600"][class*="text-transparent"],
+html.dark [class*="from-cyan-500"][class*="text-transparent"],
+html.dark [class*="from-cyan-300"][class*="text-transparent"] {
+  background-image: linear-gradient(90deg, #38bdf8 0%, #22d3ee 48%, #34d399 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* Light-theme sky/cyan/emerald badges become dark glass badges. */
+html.dark .bg-sky-50,
+html.dark .bg-sky-100,
+html.dark .bg-cyan-50,
+html.dark .bg-cyan-100,
+html.dark .bg-emerald-50,
+html.dark .bg-emerald-100,
+html.dark .bg-teal-50,
+html.dark .bg-teal-100 {
+  background-color: rgba(14, 45, 60, .88) !important;
+}
+
+html.dark .text-sky-700,
+html.dark .text-cyan-700,
+html.dark .text-emerald-700,
+html.dark .text-teal-700 {
+  color: #67e8f9 !important;
+}
+
+html.dark .border-sky-200,
+html.dark .border-cyan-200,
+html.dark .border-emerald-200,
+html.dark .border-teal-200 {
+  border-color: rgba(103, 232, 249, .28) !important;
+}
+
+/* Any heading containing a dark light-theme gradient gets a bright
+   readable gradient while all normal heading text stays white. */
+html.dark #hadr h2 span,
+html.dark #gis-analysis h2 span,
+html.dark #innovation h2 span,
+html.dark #gee-analysis h2 span,
+html.dark #technology h2 span,
+html.dark #outputs h2 span,
+html.dark #how-it-works h2 span,
+html.dark #problem h2 span {
+  background-image: linear-gradient(90deg, #38bdf8 0%, #22d3ee 48%, #34d399 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* Make secondary text in dark sections brighter than the old muted slate. */
+html.dark #hadr .text-slate-500,
+html.dark #hadr .text-slate-400,
+html.dark #gis-analysis .text-slate-500,
+html.dark #gis-analysis .text-slate-400,
+html.dark #innovation .text-slate-500,
+html.dark #innovation .text-slate-400 {
+  color: #cbd5e1 !important;
+}
+
+/* =========================================================
+   FINAL DARK HERO COLOR FIX
+   The hero has a few legacy light-theme selectors with higher
+   specificity. These dark-mode rules intentionally override them.
+   ========================================================= */
+html.dark #hero {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(19,184,209,.18), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(49,196,107,.14), transparent 30%),
+    linear-gradient(135deg, #061522 0%, #081c2b 52%, #071d24 100%) !important;
+  color: #f8fafc !important;
+}
+
+/* Main hero heading: bright white + vivid blue/cyan/green accent. */
+html.dark #hero h1,
+html.dark #hero h1:first-child {
+  color: #f8fafc !important;
+}
+
+html.dark #hero h1 span {
+  background-image: linear-gradient(90deg, #38bdf8 0%, #22d3ee 48%, #34d399 100%) !important;
+  background-color: transparent !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* Hero paragraph and emphasized project name. */
+html.dark #hero p,
+html.dark #hero p.text-slate-300 {
+  color: #dbeafe !important;
+}
+html.dark #hero p strong,
+html.dark #hero p .text-white {
+  color: #ffffff !important;
+}
+
+/* Hero label must not remain a white/light-theme pill. */
+html.dark #hero .inline-flex.rounded-full {
+  background: rgba(15, 48, 62, .88) !important;
+  border-color: rgba(103,232,249,.25) !important;
+  color: #d9faff !important;
+  box-shadow: 0 8px 25px rgba(0,0,0,.12);
+}
+
+html.dark #hero .inline-flex.rounded-full .bg-emerald-300 {
+  background: #6ee7b7 !important;
+  box-shadow: 0 0 14px rgba(110,231,183,.55) !important;
+}
+
+/* Hero CTAs. */
+html.dark #hero a.bg-gradient-to-r {
+  background: linear-gradient(135deg, #22d3ee 0%, #34d399 100%) !important;
+  color: #06202b !important;
+}
+html.dark #hero a.border-white\/15 {
+  background: rgba(255,255,255,.055) !important;
+  border-color: rgba(148,163,184,.24) !important;
+  color: #f8fafc !important;
+}
+html.dark #hero a.border-white\/15:hover {
+  background: rgba(255,255,255,.10) !important;
+}
+
+/* SPH / Delft3D / GEE cards: dark cards, bright labels, readable subtitles. */
+html.dark #hero .grid.grid-cols-3 > div {
+  background: rgba(16,32,45,.92) !important;
+  border-color: rgba(148,163,184,.20) !important;
+  color: #f8fafc !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+html.dark #hero .grid.grid-cols-3 .text-cyan-200 {
+  color: #a5f3fc !important;
+}
+html.dark #hero .grid.grid-cols-3 .text-slate-400 {
+  color: #cbd5e1 !important;
+}
+
+/* Text inside the live simulation panel. */
+html.dark .setra-hero-modal .text-slate-400 {
+  color: #a9c0cb !important;
+}
+html.dark .setra-hero-modal .text-sm.font-semibold {
+  color: #f1f5f9 !important;
+}
+html.dark .setra-hero-modal .text-emerald-200 {
+  color: #a7f3d0 !important;
+}
